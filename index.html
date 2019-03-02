@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Trivia</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+</head>
+
+<body>
+    <container id="gamescreen">
+        <h1>Let's play!</h1>
+        <div id="show-number"></div>
+
+        <br>
+
+        <button id="stop">Stop</button>
+        <button id="resume">Resume</button>
+
+
+
+
+        <form id="question1">
+            <h2>Pablo Escobar was the head of the ___ Cartel.</h2>
+            <input value="A" name="question1" type="radio">Cali</input>
+            <input value="B" name="question1" type="radio">Medellín</input>
+            <input value="C" name="question1" type="radio">Corona</input>
+            <input value="D" name="question1" type="radio">Tres Equis</input>
+        </form>
+        <form id="question2">
+            <h2>On the side, Pablo Escobar ran a ___business.</h2>
+            <input value="A" name="question2" type="radio">Taxi</input>
+            <input value="B" name="question2" type="radio">Mining</input>
+            <input value="C" name="question2" type="radio">Pharmacy</input>
+            <input value="D" name="question2" type="radio">Jewelry</input>
+
+        </form>
+        <form id="question3">
+            <h2>Complete the following phrase: "Plata o___"</h2>
+            <input value="A" name="question3" type="radio">Cerdo</input>
+            <input value="B" name="question3" type="radio">Oro</input>
+            <input value="C" name="question3" type="radio">Más plata</input>
+            <input value="D" name="question3" type="radio">Plomo</input>
+        </form>
+
+        <form id="question4">
+            <h2>Pablo Escobar escaped justice and lived happily ever after.</h2>
+            <input value="true" name="question4" type="radio">true</input>
+            <input value="false" name="question4" type="radio">false</input>
+        </form>
+    </container>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Script -->
+    <script type="text/javascript">
+
+        var number = 3;
+
+        var intervalId;
+        var question1answer = document.getElementById("question1");
+        var answer2 = document.getElementById("answer2");
+        var answers = ["B", "A", "D", "false"];
+        var percentcorrect= 0;
+
+        $("#stop").on("click", stop);
+
+        $("#resume").on("click", run);
+
+
+
+        function decrement() {
+
+            number--;
+
+            $("#show-number").html("<h2>" + number + " seconds" + "</h2>");
+            if (number === 0) {
+
+                stop();
+
+                alert("Time Up!");
+                $("#gamescreen").html();
+                checkanswer();
+            }
+        }
+        function checkanswer() {
+            // create new function for "add 25%" if 'input[name=question1]:checked'= answers[0];
+            var pickedanswer = $('input[name=question1]:checked').val();
+            console.log(pickedanswer);
+            if (pickedanswer===answers[0]) {
+                percentcorrect+=25;
+                alert("you got" + percentcorrect + "% correct")
+
+            }
+            else {
+                alert("you got 0% correct")
+            }
+        }
+        function stop() {
+
+            clearInterval(intervalId);
+        }
+        function run() {
+            intervalId = setInterval(decrement, 1000);
+        }
+        run();
+        console.log($('input[name=question1]:checked'))
+ //get given answers for each radio input
+
+
+    </script>
+
+
+</body>
+
+</html>

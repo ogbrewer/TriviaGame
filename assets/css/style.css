@@ -1,9 +1,9 @@
-.container {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    background-color: yellow;
-  }
+body {
+  background-color: green;
+  color:red;
+}
+
+
   
   .container img {
     width: 100px;
@@ -27,8 +27,8 @@
   }
 
   img {
-      height:100px;
-      width: 100px;
+      height:500px;
+      width: 500px;
   }
 
 .a {
@@ -39,38 +39,3 @@ text-align: center;
 
   
 
-
-function theFunction(x) {
-  $("#e").text(e += x);
-  if (e === computerPick) {
-  alert("You Win!");
-  a = Math.floor(Math.random() * 11) + 1;
-  $("#a").text(a);
-  b = Math.floor(Math.random() * 11) + 1;
-  $("#b").text(b);
-  c = Math.floor(Math.random() * 11) + 1;
-  d = Math.floor(Math.random() * 11) + 1;
-  $("#c").text(d);
-  $("#c").text(c);
-  computerPick= Math.floor(Math.random() * 101)+ 19;
-  $("#computer-pick").text(computerPick);
-  e = 0;
-  $("#e").text(e);
-  winsTally.textContent++;
-}
-else if (e > computerPick) {
-  alert("You lose");
-  a = Math.floor(Math.random() * 11) + 1;
-  $("#a").text(a);
-  b = Math.floor(Math.random() * 11) + 1;
-  $("#b").text(b);
-  c = Math.floor(Math.random() * 11) + 1;
-  $("#c").text(c);
-  d = Math.floor(Math.random() * 11) + 1;
-  $("#c").text(d);
-  computerPick= Math.floor(Math.random() * 101)+ 19;
-  $("#computer-pick").text(computerPick);
-  e = 0;
-  $("#e").text(e);
-  lossesTally.textContent++;
-}
